@@ -113,6 +113,7 @@ _custom_logger_compatible_callbacks_literal = Literal[
     "pagerduty",
     "humanloop",
     "gcs_pubsub",
+    "anthropic_cache_control_hook",
 ]
 logged_real_time_event_types: Optional[Union[List[str], Literal["*"]]] = None
 _known_custom_logger_compatible_callbacks: List = list(
@@ -162,7 +163,7 @@ token: Optional[str] = (
 telemetry = True
 max_tokens: int = DEFAULT_MAX_TOKENS  # OpenAI Defaults
 drop_params = bool(os.getenv("LITELLM_DROP_PARAMS", False))
-modify_params = False
+modify_params = bool(os.getenv("LITELLM_MODIFY_PARAMS", False))
 retry = True
 ### AUTH ###
 api_key: Optional[str] = None
